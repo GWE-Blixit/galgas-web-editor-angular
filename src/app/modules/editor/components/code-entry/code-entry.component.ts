@@ -9,6 +9,7 @@ import { Editor } from 'brace';
 // import { AceConfigInterface, AceComponent } from 'ngx-ace-wrapper';
 import { Compilator } from '../../services/compilator';
 import { FileSystem } from '../../services/file-system';
+import { AboutGWE } from '../../../../services/utils/about';
 
 @Component({
   selector: 'editor-code-entry',
@@ -39,6 +40,7 @@ export class CodeEntryComponent implements OnInit, OnDestroy {
   options:any = {maxLines: 1000, printMargin: false};
 
   constructor(
+    public aboutGWE: AboutGWE,
     public activeFile: ActiveFile,
     public compilator: Compilator,
     public fs: FileSystem,
@@ -75,6 +77,18 @@ export class CodeEntryComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriptionToActiveFile.unsubscribe();
+  }
+  
+  onChange(e: string) {
+    if (e.length === 0) {
+      return;
+    }
+
+    if (this.file.lastUpdateOnEditor === null) {
+      this.file.lastUpdateOnEditor = new Date();
+      return;
+    }
+    this.file.saved = false;
   }
 
   compile(e?) {
@@ -122,6 +136,8 @@ export class CodeEntryComponent implements OnInit, OnDestroy {
       const errors = response.errors || [];
       if (errors.length > 0) {
         alert(response.errors);
+      } else {
+        this.file.saved = true;
       }
 
       this.cdr.detectChanges();

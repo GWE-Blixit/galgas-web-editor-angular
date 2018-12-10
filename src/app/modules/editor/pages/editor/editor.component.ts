@@ -7,6 +7,7 @@ import { ActiveProject } from '../../services/active-project';
 import { ConfirmationService } from '../../../shared/modal/confirm/confirmation-service';
 import { Subscription } from 'rxjs';
 import { Compilator } from '../../services/compilator';
+import { AboutGWE } from '../../../../services/utils/about';
 
 @Component({
   selector: 'app-editor',
@@ -19,6 +20,7 @@ export class EditorComponent implements OnInit, OnDestroy {
   binaryVersion = '';
 
   constructor(
+    public aboutGWE: AboutGWE,
     private route: ActivatedRoute,
     private router: Router,
     private projectService: ProjectService,

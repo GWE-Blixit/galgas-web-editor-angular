@@ -12,13 +12,17 @@
         <i *ngIf="!compilationSucceed" [style.color]="'red'" class="fa fa-times"></i>
     </div>
 </div>
-<ace *ngIf="file" style="display: block; flex-grow: 1; min-height:200px; height: 60vh !important"
+<!-- EDITOR with ngx-ace-wrapper -->
+<ace *ngIf="file && !file.isWelcome" style="display: block; flex-grow: 1; min-height:200px; height: 60vh !important"
   [config]="config"
   [mode]="'text'"
   [theme]="'github'"
   [(value)]="file.sourceCode"
->
-</ace>
+  (valueChange)="onChange($event)"
+  [disabled]="!file.editable"
+></ace>
+
+<!-- EDITOR with ng2-ace-editor -->
 <!-- <div style="position:absolute; width: 100%; max-height: 60vh !important; overflow: auto">
   <ace-editor *ngIf="file && file.project != null" #editor
   style="min-height:60vh; "
@@ -33,11 +37,15 @@
   </div>
 </div> -->
 
-
-<!-- NO FILE -->
-<div *ngIf="! file">
-  <p>Galgas Web Editor is an initiative from Alain NGANGOUE.</p>
+<!-- No file selected OR Current file is welcome -->
+<div *ngIf="!file || (file && file.isWelcome)"
+  style="text-align: justify; font-family: Monaco, Menlo, Consolas, 'Droid Sans Mono', 'Inconsolata', 'Courier New', monospace">
+  <p>Galgas Web Editor ({{ aboutGWE.getVersion() }}) is an initiative from {{ aboutGWE.getAuthor() }}.</p>
   <p>The goal of this project is to make Galgas more accessible because of it's really easy to use
     in comparison with similar tools (flex, bison, ...) that allow language creation.
+  </p>
+  <p>
+    To contribute to this project, you can visit this github page: 
+    <a target="blank" href="https://github.com/blixit/galgas-web-editor-angular">https://github.com/blixit/galgas-web-editor-angular</a>
   </p>
 </div>

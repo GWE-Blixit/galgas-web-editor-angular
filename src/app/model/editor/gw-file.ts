@@ -6,6 +6,10 @@ export class GWFile {
     path: string;
     sourceCode = '';
     project: Project = null;
+    saved = true;
+    lastUpdateOnEditor: Date = null;
+    editable = true;
+    isWelcome = false;
 }
 
 export class GWDefaultFile extends GWFile {
@@ -13,4 +17,6 @@ export class GWDefaultFile extends GWFile {
     name = 'Welcome';
     path = '';
     sourceCode = 'Source Code';
+    editable = false;
+    isWelcome = true;
 }

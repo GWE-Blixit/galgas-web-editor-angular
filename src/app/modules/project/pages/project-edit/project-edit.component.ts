@@ -30,6 +30,8 @@ export class ProjectEditComponent implements OnInit {
         .catch(error => {
           alert(error);
         })
+      } else {
+        this.project = new Project('');
       }
     })
   }

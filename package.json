@@ -1,13 +1,15 @@
 {
   "name": "gwe-angular",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Alain NGANGOUE",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "prestart": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
@@ -23,11 +25,13 @@
     "@angular/router": "~7.1.0",
     "@ngx-pwa/local-storage": "^7.2.0",
     "core-js": "^2.5.4",
+    "express": "^4.16.4",
     "faker": "^4.1.0",
     "font-awesome": "^4.7.0",
     "ng2-ace-editor": "^0.3.8",
     "ng2-tree": "^2.0.0-rc.11",
     "ngx-ace-wrapper": "^7.2.0",
+    "path": "^0.12.7",
     "rxjs": "6.2.2",
     "rxjs-compat": "6.2.2",
     "tslib": "^1.9.0",
@@ -38,10 +42,11 @@
     "@angular/cli": "~7.1.0",
     "@angular/compiler-cli": "~7.1.0",
     "@angular/language-service": "~7.1.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
@@ -53,5 +58,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.6"
+  },
+  "engines": {
+    "node": "8.14.0",
+    "npm": "6.4.1"
   }
 }

@@ -10,6 +10,7 @@ import { ConfirmComponent } from './modules/shared/modal/confirm/confirm.compone
 import { MatDialogModule } from '@angular/material';
 import { ConfirmationService } from './modules/shared/modal/confirm/confirmation-service';
 import { ApiService } from './services/api/api-service';
+import { AboutGWE } from './services/utils/about';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ApiService } from './services/api/api-service';
   ],
   providers: [
     FakerDecorator,
+    AboutGWE,
     ApiService,
     ConfirmationService
   ],

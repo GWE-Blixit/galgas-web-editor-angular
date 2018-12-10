@@ -9,6 +9,10 @@ const routes: Routes = [
     component: ProjectEditComponent
   },
   {
+    path: 'new',
+    component: ProjectEditComponent
+  },
+  {
     path: '',
     component: ProjectListComponent
   }

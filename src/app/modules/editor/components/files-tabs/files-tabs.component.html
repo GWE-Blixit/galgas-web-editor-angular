@@ -8,7 +8,7 @@
   >
     <ng-template mat-tab-label >
       <div style="width: 100% !important; position: relative; display: flex; flex-direction: row">
-          <span>{{ file.name }}</span>
+          <span>{{ file.name }} <i *ngIf="! file.saved" class="fa fa-circle" style="color:orange"></i></span>
           <mat-icon class="gwe-tab-icon" (click)="close(file)" ><i class="fa fa-times fa-lg"></i></mat-icon>
       </div>
     </ng-template>

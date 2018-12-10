@@ -2,11 +2,16 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+let packageJson = require('../../package.json');
+
 export const environment = {
   production: false,
   urls: {
-    api: 'http://localhost:8000/gwa'
-  }
+    // api: 'http://localhost:8000/gwa'
+    api: 'https://glacial-forest-26792.herokuapp.com/gwa'
+  },
+  version: packageJson.version,
+  author: packageJson.author
 };
 
 /*

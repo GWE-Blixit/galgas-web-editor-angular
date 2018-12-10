@@ -1,5 +1,7 @@
 <h1>Projects</h1>
 
+<button mat-fab [routerLink]="['/new']" [color]="'primary'" ><i class="fa fa-plus"></i></button>
+
 <div>
   <mat-card *ngFor="let project of projects" class="project-card">
     <mat-card-header>

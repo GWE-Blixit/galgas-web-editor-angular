@@ -1,6 +1,10 @@
+let packageJson = require('../../package.json');
+
 export const environment = {
   production: true,
   urls: {
-    api: 'http://localhost:8000/gwa'
-  }
+    api: 'https://glacial-forest-26792.herokuapp.com/gwa'
+  },
+  version: packageJson.version,
+  author: packageJson.author
 };

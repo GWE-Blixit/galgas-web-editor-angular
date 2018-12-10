@@ -2,7 +2,7 @@
     <!-- Menu -->
     <div class="editor-header">
         <div class="editor-menu-item" routerLink="/">
-            <button mat-button color="gwe-logo">Galgas Web Editor</button>
+            <button mat-button color="gwe-logo">Galgas Web Editor <em>{{ aboutGWE.getVersion() }}</em></button>
         </div>
         <div class="editor-menu-item">
             <button mat-raised-button color="primary" [matMenuTriggerFor]="menu"><i class="fa fa-bars fa-lg"></i> Menu</button>
