@@ -14,10 +14,10 @@ export interface ConfirmDialogData {
   styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
-  private title = '';
-  private reason = '';
-  private action = '';
-  private isConfirmed = false;
+  public title = '';
+  public reason = '';
+  public action = '';
+  public isConfirmed = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: ConfirmDialogData) {
     this.title = data.title;
@@ -28,11 +28,7 @@ export class ConfirmComponent implements OnInit {
   ngOnInit() {
   }
 
-  protected actionTriggered(){
+  public actionTriggered(){
     this.isConfirmed = true;
-  }
-
-  actionConfirmed() {
-    return this.isConfirmed;
   }
 }

@@ -34,7 +34,7 @@ export class ProjectListComponent implements OnInit {
     ref.beforeClose().toPromise()
     .then((data) => {
       //temporary order of instructions: should be remove + refresh, not the opposite
-      if (ref.componentInstance.actionConfirmed()) {
+      if (ref.componentInstance.isConfirmed) {
         // refresh list
         this.projects = this.projects.filter(_project => _project.id !== project.id);
         // remove object

@@ -1,5 +1,6 @@
 <div *ngIf="project && saveForm" [formGroup]="saveForm">
-  <h1>{{ project.name }} <em>({{ f.name.value }})</em></h1>
+  <h1 *ngIf="f.name.value">{{ project.name }} <em>({{ f.name.value }})</em></h1>
+  <h1 *ngIf="! f.name.value">Set a project name on the appropriate field</h1>
 
   <p>
     <mat-form-field>

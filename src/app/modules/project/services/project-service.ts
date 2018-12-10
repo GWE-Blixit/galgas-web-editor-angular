@@ -79,8 +79,11 @@ export class ProjectService extends ApiService {
         return of(null);
     }
 
-    create(project: Project): Observable<Project> {
-        return of(new Project('created', ''));
+    create(project: Project): Observable<string> {
+        return this.http.post(this.API, project)
+        .pipe(
+            map(data => data['created'])
+        );
     }
 
     update(project: Project): Observable<Project> {

@@ -74,7 +74,7 @@ export class EditorComponent implements OnInit, OnDestroy {
   
         ref.beforeClose().toPromise()
         .then(() => {
-          if (ref.componentInstance.actionConfirmed()) {
+          if (ref.componentInstance.isConfirmed) {
             this.activeProject.dispatch(_project);
           }
         });

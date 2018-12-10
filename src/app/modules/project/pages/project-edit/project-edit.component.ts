@@ -13,6 +13,7 @@ import { Version } from '../../../../model/project/version';
 export class ProjectEditComponent implements OnInit {
   project: Project = null;
   saveForm: FormGroup;
+  creationInProgress = false;
 
 
   constructor(
@@ -32,6 +33,7 @@ export class ProjectEditComponent implements OnInit {
         })
       } else {
         this.project = new Project('');
+        this.creationInProgress = true;
       }
     })
   }
@@ -61,14 +63,25 @@ export class ProjectEditComponent implements OnInit {
       description: this.f.description.value,
     });
 
-    this.projectService.set(this.project.id, this.project).toPromise()
+    if (this.creationInProgress) {
+      this.projectService.create(this.project).toPromise()
+      .then((id: string) => {
+        alert('Saved ! You will be redirected to the editor.');
+        this.router.navigate(['/editor/' + id]);
+      })
+      .catch(error => {
+        alert(error);
+      });
+    } else {
+      this.projectService.set(this.project.id, this.project).toPromise()
     .then(() => {
       alert('Saved ! You will be redirected to the projects page.');
       this.router.navigate(['/projects']);
     })
     .catch(error => {
       alert(error);
-    })
+    });
+    }
   }
 
 }
