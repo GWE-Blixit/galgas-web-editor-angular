@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  urls: {
+    api: 'http://localhost:8000/gwa'
+  }
 };

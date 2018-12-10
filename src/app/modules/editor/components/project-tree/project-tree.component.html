@@ -1,0 +1,11 @@
+<tree #treeComponent
+  [tree]="tree" 
+  (nodeMoved)="treeEventHandler.onNodeMoved($event)"
+  (nodeSelected)="treeEventHandler.onNodeSelected($event)"
+  (nodeRenamed)="treeEventHandler.onNodeRenamed($event)"
+  (nodeRemoved)="treeEventHandler.onNodeRemoved($event)"
+  (nodeCreated)="treeEventHandler.onNodeCreated($event)"
+  (nodeExpanded)="treeEventHandler.onNodeExpanded($event)"
+  (nodeCollapsed)="treeEventHandler.onNodeCollapsed($event)"
+  (menuItemSelected)="treeEventHandler.onMenuItemSelected($event)"
+></tree>

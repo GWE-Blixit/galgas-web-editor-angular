@@ -1,0 +1,43 @@
+<div class="gwe-toolbar" *ngIf="file">
+    <button mat-button color="primary" (click)="save()" [disabled]="savingFile || file.project == null" >
+      Save 
+      <i [style.color]="'grey'" class="fa fa-save fa-lg"></i>
+    </button>
+    <button mat-button color="'primary'" (click)="compile()" [disabled]="file.project == null" >
+      Compile 
+      <i [style.color]="'green'" class="fa fa-microchip fa-lg"></i>
+    </button>
+    <div>
+        <i *ngIf="compilationSucceed" [style.color]="'green'" class="fa fa-check"></i>
+        <i *ngIf="!compilationSucceed" [style.color]="'red'" class="fa fa-times"></i>
+    </div>
+</div>
+<ace *ngIf="file" style="display: block; flex-grow: 1; min-height:200px; height: 60vh !important"
+  [config]="config"
+  [mode]="'text'"
+  [theme]="'github'"
+  [(value)]="file.sourceCode"
+>
+</ace>
+<!-- <div style="position:absolute; width: 100%; max-height: 60vh !important; overflow: auto">
+  <ace-editor *ngIf="file && file.project != null" #editor
+  style="min-height:60vh; "
+  [(text)]="file.sourceCode"
+  [mode]="'text'"
+  [theme]="'github'"
+  [options]="options"
+  [readOnly]="false"
+  ></ace-editor>
+  <div  *ngIf="file && !file.project" style="flex-grow: 1; ">
+    {{ file.sourceCode }}
+  </div>
+</div> -->
+
+
+<!-- NO FILE -->
+<div *ngIf="! file">
+  <p>Galgas Web Editor is an initiative from Alain NGANGOUE.</p>
+  <p>The goal of this project is to make Galgas more accessible because of it's really easy to use
+    in comparison with similar tools (flex, bison, ...) that allow language creation.
+  </p>
+</div>

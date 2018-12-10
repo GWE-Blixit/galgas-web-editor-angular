@@ -1,0 +1,38 @@
+<div fxFlexFill fxLayout="column" class="editor-wrapper">
+    <!-- Menu -->
+    <div class="editor-header">
+        <div class="editor-menu-item" routerLink="/">
+            <button mat-button color="gwe-logo">Galgas Web Editor</button>
+        </div>
+        <div class="editor-menu-item">
+            <button mat-raised-button color="primary" [matMenuTriggerFor]="menu"><i class="fa fa-bars fa-lg"></i> Menu</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Open ...</button>
+                <button mat-menu-item>Quit</button>
+            </mat-menu>
+        </div>
+    </div>
+    <!-- Content -->
+    <div class="editor-content"  *ngIf="! project">
+        <h1>Project not found</h1>
+    </div>
+    <div class="editor-content" *ngIf="project">
+        <!-- Files project -->
+        <div class="editor-sidebar">
+            <div class="editor-sidebar-project-name">
+                {{ project.name }}
+            </div>
+            <editor-project-tree></editor-project-tree>
+        </div>
+        <!-- Editor -->
+        <div class="editor-code-area">
+            <editor-files-tabs *ngIf="project"></editor-files-tabs>
+            <editor-code-entry style="flex-grow: 1" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto"></editor-code-entry>
+            <editor-console></editor-console>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="editor-footer">
+        <mat-grid-tile-footer>Binary Version: {{ binaryVersion }} - Status and events</mat-grid-tile-footer>
+    </div>
+</div>

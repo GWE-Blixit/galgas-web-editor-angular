@@ -2,7 +2,13 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": []
+    "module": "es2015",
+    "types": ["node"],
+    "paths": {
+      "rxjs/internal/observable/of": [
+          "../node_modules/rxjs/_esm5/internal/observable/of"
+      ]
+    }
   },
   "exclude": [
     "test.ts",

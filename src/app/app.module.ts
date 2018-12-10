@@ -1,18 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FakerDecorator } from './services/utils/faker-decorator';
+import { ConfirmComponent } from './modules/shared/modal/confirm/confirm.component';
+import { MatDialogModule } from '@angular/material';
+import { ConfirmationService } from './modules/shared/modal/confirm/confirmation-service';
+import { ApiService } from './services/api/api-service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfirmComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,HttpClientModule,
+    AppRoutingModule,
+    MatDialogModule,
   ],
-  providers: [],
+  exports: [
+    ConfirmComponent
+  ],
+  providers: [
+    FakerDecorator,
+    ApiService,
+    ConfirmationService
+  ],
+  entryComponents: [
+    ConfirmComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,16 @@
+<div *ngIf="compilationCount">
+  <div *ngFor="let compilation of errors">
+    <span>[{{ compilation.time | date:'mediumTime' }}] - </span>
+    <span [style.color]="compilation.errors.length > 0 ? 'red':'green'"> {{ compilation.errors.length }} Error.s</span>
+    <span> Duration: {{ compilation?.duration }} ms</span>
+    <br>
+    <div *ngFor="let _error of compilation.errors">
+        >> Position: <span style="color: rgb(194, 146, 41)">{{_error.SOURCE}}</span> <span style="color: rgb(28, 133, 165)">line: {{_error.LINE}} columns: {{ _error.START_COLUMN}} ->  {{ _error.END_COLUMN}}</span> <br>
+        >> Message: <span style="color:red">{{_error.MESSAGE}}</span> <br>
+        <div *ngFor="let log of compilation.out">
+            <span style="color:rgb(42, 112, 218)">{{ log }}</span> <br>
+        </div>
+    </div>
+    <br>
+  </div>
+</div>

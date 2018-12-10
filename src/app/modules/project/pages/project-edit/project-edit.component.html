@@ -1,0 +1,39 @@
+<div *ngIf="project && saveForm" [formGroup]="saveForm">
+  <h1>{{ project.name }} <em>({{ f.name.value }})</em></h1>
+
+  <p>
+    <mat-form-field>
+      <input matInput placeholder="Project Name (at least 2 letters)" formControlName="name">
+      <div *ngIf="f.name.invalid">Project name is not correct. </div>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Version Major Number" formControlName="versionM">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Version Minor Number" formControlName="versionm">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Version Revision Number" formControlName="versionr">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field style="width: 80%;">
+      <textarea matInput placeholder="Description" formControlName="description"
+      rows="5" cols="80"
+      ></textarea>
+    </mat-form-field>
+  </p>
+
+  <p>
+    Targets and properties
+  </p>
+
+  <p>
+    <button mat-button [routerLink]="['/projects']">Cancel</button>
+    <button mat-raised-button color="danger" (click)="save()">Save</button>
+  </p>
+</div>

@@ -1,0 +1,79 @@
+:host{
+}
+
+/** Wrapper */
+.editor-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+	min-height:100vh;
+}
+/* Header */
+.editor-header{
+    display: flex;
+    flex-direction: row; 
+    background: grey;
+    border-bottom: 2px solid black;
+    background: black;
+    .mat-gwe-logo{
+        color: white;
+    }
+}
+
+.editor-menu-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; 
+    font-size: 20px !important;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+}
+
+/* Content*/
+.editor-content{
+    display: flex;
+    flex-direction: row;
+	flex-grow:1;
+}
+
+.editor-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    border-right: 2px solid black;
+    background: grey;
+    color: rgb(63, 46, 94) !important;
+    padding: 0;
+    padding-right: 10px;
+    left: -20px !important;
+    max-width: 300px;
+    ul {
+        margin: 0 !important;
+        left: -20px !important;
+        -webkit-padding-start: -20px !important;
+    }
+    .editor-sidebar-project-name{
+        width: 100%;
+        border-bottom: 1px solid silver;
+        padding: 10px;
+        padding-right: 0;
+    }
+}
+
+.editor-code-area{
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+}
+
+/* Footer */
+.editor-footer{
+    display: flex;
+    flex-direction: row; 
+    background: grey;
+    padding: 10px; 
+    border-top: 2px solid black;
+}
