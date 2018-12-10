@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
     "@ngx-pwa/local-storage": "^7.2.0",
+    "@angular/cli": "~7.1.0",
+    "@angular/compiler-cli": "~7.1.0",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
     "faker": "^4.1.0",
